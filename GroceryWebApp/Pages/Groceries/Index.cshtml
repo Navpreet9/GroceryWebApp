@@ -1,0 +1,54 @@
+﻿@page
+@model GroceryWebApp.Pages.Groceries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center heading">All Grocery Details</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary btn-lg raised round">Add New Grocery</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grocery[0].GroceryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grocery[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grocery[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grocery[0].Brand)
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Grocery)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroceryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" class="btn btn-secondary btn-lg raised round" asp-route-id="@item.GroceryID">Edit</a>
+                    <a asp-page="./Delete" class="btn btn-danger btn-lg raised round" asp-route-id="@item.GroceryID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

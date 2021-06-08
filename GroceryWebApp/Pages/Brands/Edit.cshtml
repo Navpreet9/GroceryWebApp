@@ -1,0 +1,32 @@
+﻿@page
+@model GroceryWebApp.Pages.Brands.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center heading">Edit Brand Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/images/brands.png" class="img-fluid" />
+    </div>
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Brand.BrandID" />
+            <div class="form-group">
+                <label asp-for="Brand.BrandName" class="control-label"></label>
+                <input asp-for="Brand.BrandName" class="form-control" />
+                <span asp-validation-for="Brand.BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Brand Details" class="btn btn-primary btn-lg raised round" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

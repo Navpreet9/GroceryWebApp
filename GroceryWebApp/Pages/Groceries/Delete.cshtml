@@ -1,0 +1,44 @@
+﻿@page
+@model GroceryWebApp.Pages.Groceries.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center heading">Delete Grocery Details</h1>
+
+<div>
+    <h4>Are You Sure to delete this Grocery Details?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grocery.GroceryName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grocery.GroceryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grocery.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grocery.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grocery.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grocery.Category.CategoryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grocery.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grocery.Brand.BrandName)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Grocery.GroceryID" />
+        <input type="submit" value="Delete Grocery Details" class="btn btn-danger  btn-lg raised round"/>
+    </form>
+</div>
